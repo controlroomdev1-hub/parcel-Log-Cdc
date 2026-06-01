@@ -98,3 +98,3278 @@
     .mark {
       width: 44px;
       height: 44px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--brand);
+      font-weight: 800;
+      font-size: 24px;
+      flex: 0 0 auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(20px, 2.4vw, 30px);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .today {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .menu-toggle {
+      width: 42px;
+      padding: 0;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+    }
+
+    main {
+      width: auto;
+      max-width: 1360px;
+      margin-left: 286px;
+      margin-right: clamp(14px, 4vw, 34px);
+      padding: 18px clamp(14px, 4vw, 34px) 34px;
+      transition: margin-left .22s ease;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .dashboard-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+
+    .dashboard-panel h2 {
+      margin-bottom: 12px;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .quick-card {
+      display: grid;
+      align-content: center;
+      min-height: 84px;
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+
+    .quick-card strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .quick-card span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .recent-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .recent-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8fbfa;
+    }
+
+    .recent-item small {
+      color: var(--muted);
+    }
+
+    .menu {
+      position: fixed;
+      top: var(--sidebar-top, 88px);
+      left: 18px;
+      bottom: 18px;
+      z-index: 30;
+      width: 244px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: width .22s ease, transform .22s ease;
+    }
+
+    .menu-button {
+      min-height: 48px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      box-shadow: none;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: left;
+    }
+
+    .menu-button::before {
+      content: attr(data-icon);
+      width: 24px;
+      flex: 0 0 24px;
+      text-align: center;
+      font-size: 19px;
+    }
+
+    .menu-button.icon-image::before {
+      display: none;
+    }
+
+    .menu-icon {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      flex: 0 0 52px;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .menu-button.active {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand);
+    }
+
+    .menu-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 2px 0 8px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 4px;
+    }
+
+    .menu-title {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 8px 4px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      background: rgba(10, 24, 22, .42);
+    }
+
+    body.sidebar-collapsed main {
+      margin-left: 112px;
+    }
+
+    body.sidebar-collapsed .menu {
+      width: 76px;
+    }
+
+    body.sidebar-collapsed .menu-title {
+      opacity: 0;
+    }
+
+    body.sidebar-collapsed .menu-head {
+      justify-content: center;
+    }
+
+    body.sidebar-collapsed .menu-button {
+      justify-content: center;
+      padding-inline: 0;
+      font-size: 0;
+    }
+
+    body.sidebar-collapsed .menu-button::before {
+      font-size: 21px;
+    }
+
+    body.sidebar-collapsed .menu-icon {
+      width: 52px;
+      height: 52px;
+      flex-basis: 52px;
+    }
+
+    .menu-view { display: none; }
+    .menu-view.active { display: block; }
+
+    .stat, section, .toolbar, .table-wrap, .report-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat {
+      padding: 13px;
+      min-height: 78px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 27px;
+      line-height: 1;
+      margin-top: 5px;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(310px, 420px) 1fr;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+
+    .workspace.form-only {
+      grid-template-columns: minmax(310px, 620px);
+    }
+
+    section { padding: 17px; }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .photo-preview {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border: 1px dashed #b8cbc7;
+      border-radius: 8px;
+      background: #f8fbfa;
+    }
+
+    .photo-preview img {
+      width: 112px;
+      height: 84px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .photo-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .hidden-file {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .hint { color: var(--muted); font-size: 12px; margin: 5px 0 0; }
+
+    .toolbar {
+      padding: 13px;
+      margin-bottom: 12px;
+      display: grid;
+      gap: 11px;
+    }
+
+    .tool-row {
+      display: grid;
+      grid-template-columns: 1fr 128px 128px 128px;
+      gap: 9px;
+    }
+
+    .dashboard-filter {
+      padding: 13px;
+      margin: 0 0 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 190px)) auto;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .dashboard-filter .filter-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .report-panel {
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .bars {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 130px 1fr 46px;
+      gap: 10px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .bar-track {
+      height: 12px;
+      background: var(--soft);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--blue);
+      min-width: 3px;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1040px;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 11px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    th {
+      background: #f8fbfa;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .thumb {
+      width: 64px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .thumb-empty {
+      width: 64px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .photo-stack {
+      display: grid;
+      gap: 6px;
+      justify-items: start;
+    }
+
+    .badge {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pending { color: var(--warn); background: #fff2dc; }
+    .received { color: var(--ok); background: #e8f7ed; }
+
+    .row-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-width: 176px;
+    }
+
+    .row-actions button {
+      min-height: 33px;
+      padding: 6px 8px;
+      font-size: 12px;
+    }
+
+    .empty {
+      padding: 32px 12px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    dialog {
+      width: min(760px, calc(100vw - 28px));
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .22);
+    }
+
+    dialog::backdrop { background: rgba(10, 24, 22, .45); }
+
+    .modal-head, .modal-body { padding: 14px 16px; }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-body img {
+      width: 100%;
+      max-height: 64vh;
+      object-fit: contain;
+      background: var(--soft);
+      border-radius: 6px;
+    }
+
+    .camera-body video {
+      width: 100%;
+      max-height: 62vh;
+      background: #111;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .camera-actions {
+      margin-top: 12px;
+    }
+
+    @media (max-width: 1040px) {
+      main {
+        margin-left: 104px;
+      }
+
+      .workspace, .stats, .report-grid, .dashboard-grid { grid-template-columns: 1fr; }
+      .tool-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      header { padding-block: 14px; }
+      .today { display: none; }
+      main {
+        margin: 0;
+        padding-inline: 14px;
+      }
+
+      .menu {
+        top: var(--sidebar-top, 76px);
+        left: 12px;
+        bottom: 12px;
+        width: min(292px, calc(100vw - 24px));
+        transform: translateX(calc(-100% - 18px));
+      }
+
+      .menu .menu-toggle {
+        position: absolute;
+        top: 0;
+        right: -56px;
+        width: 44px;
+        box-shadow: var(--shadow);
+      }
+
+      body.sidebar-open .menu .menu-toggle {
+        position: static;
+        width: 42px;
+        box-shadow: none;
+      }
+
+      body.sidebar-collapsed main {
+        margin-left: 0;
+      }
+
+      body.sidebar-collapsed .menu {
+        width: min(292px, calc(100vw - 24px));
+      }
+
+      body.sidebar-collapsed .menu-title {
+        opacity: 1;
+      }
+
+      body.sidebar-collapsed .menu-head {
+        justify-content: space-between;
+      }
+
+      body.sidebar-collapsed .menu-button {
+        justify-content: flex-start;
+        padding: 9px 12px;
+        font-size: inherit;
+      }
+
+      body.sidebar-open .menu {
+        transform: translateX(0);
+      }
+
+      body.sidebar-open .menu-overlay {
+        display: block;
+      }
+
+      .split, .tool-row, .dashboard-filter { grid-template-columns: 1fr; }
+      .quick-actions { grid-template-columns: 1fr; }
+      .photo-preview { grid-template-columns: 1fr; }
+      .photo-preview img { width: 100%; height: 180px; }
+      .bar-row { grid-template-columns: 1fr; gap: 4px; }
+      .actions button, .photo-buttons button { flex: 1 1 130px; }
+    }
+
+    @media print {
+      header, .menu, section, .toolbar, .report-panel .actions, .row-actions {
+        display: none !important;
+      }
+      main { padding: 0; }
+      .stats { margin-bottom: 10px; }
+      .table-wrap, .report-panel, .stat { border: 0; box-shadow: none; }
+    }
+
+    /* New compact operations dashboard theme */
+    body {
+      background: linear-gradient(180deg, #edf3f2 0, #f8f8f4 360px, #f3f6f5 100%);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 25;
+      background: rgba(255, 255, 255, .94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(199, 213, 210, .78);
+    }
+
+    .mark {
+      width: 46px;
+      height: 46px;
+      background: #123f3a;
+      box-shadow: 0 8px 18px rgba(18, 63, 58, .18);
+    }
+
+    h1 {
+      font-size: clamp(21px, 2.4vw, 31px);
+      letter-spacing: 0;
+    }
+
+    .menu {
+      background: #123f3a;
+      border-color: rgba(18, 63, 58, .45);
+      box-shadow: 0 18px 42px rgba(18, 63, 58, .2);
+    }
+
+    .menu-head {
+      border-bottom-color: rgba(255, 255, 255, .14);
+    }
+
+    .menu-title {
+      color: #a8c0bc;
+    }
+
+    .menu-toggle {
+      background: #ffffff;
+      color: #123f3a;
+      box-shadow: none;
+    }
+
+    .menu-button {
+      color: #d9e8e5;
+      border-color: rgba(255, 255, 255, .08);
+      border-radius: 8px;
+    }
+
+    .menu-button:hover {
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .menu-button.active {
+      background: #ffffff;
+      color: #123f3a;
+      border-color: #ffffff;
+    }
+
+    .stats {
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .stat, section, .toolbar, .table-wrap, .report-panel, .dashboard-panel {
+      border-color: rgba(215, 225, 223, .94);
+      box-shadow: 0 12px 30px rgba(27, 55, 51, .075);
+    }
+
+    .stat {
+      min-height: 92px;
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: #106b5f;
+    }
+
+    .stat:nth-child(2)::before { background: #b9650f; }
+    .stat:nth-child(3)::before { background: #24783e; }
+    .stat:nth-child(4)::before { background: #225f8f; }
+    .stat:nth-child(5)::before { background: #7a5b1f; }
+
+    .stat strong {
+      font-size: 32px;
+      margin-top: 7px;
+    }
+
+    .quick-actions {
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .quick-card {
+      min-height: 96px;
+      padding: 14px 16px;
+      border-color: rgba(215, 225, 223, .94);
+      box-shadow: 0 12px 28px rgba(27, 55, 51, .08);
+      position: relative;
+    }
+
+    .quick-card::after {
+      content: ">";
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      color: #7b918d;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .dashboard-panel {
+      padding: 18px;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    input, select, textarea {
+      border-color: #bfceca;
+      background: #fcfdfc;
+    }
+
+    .photo-preview {
+      gap: 12px;
+      padding: 12px;
+      border-color: #9eb8b3;
+      background: #f6faf9;
+    }
+
+    .toolbar {
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    th {
+      background: #eef4f2;
+      color: #536661;
+    }
+
+    tbody tr:hover td {
+      background: #fbfcfa;
+    }
+
+    .recent-item {
+      padding: 12px;
+      background: #fbfcfa;
+    }
+
+    .bar-fill {
+      background: #225f8f;
+    }
+
+    @media (max-width: 620px) {
+      header {
+        position: static;
+      }
+
+      .menu {
+        background: #123f3a;
+      }
+
+      .menu .menu-toggle {
+        background: #123f3a;
+        color: #ffffff;
+      }
+
+      body.sidebar-open .menu .menu-toggle {
+        background: #ffffff;
+        color: #123f3a;
+      }
+    }
+
+    /* Dual-company brand theme: CJ Logistics + CP AXTRA | makro */
+    :root {
+      --brand: #0878bd;
+      --brand-dark: #075f98;
+      --blue: #0878bd;
+      --warn: #f5a623;
+      --ok: #1f8f57;
+      --danger: #ed1c24;
+      --line: #dce5ea;
+      --soft: #f1f6fa;
+      --shadow: 0 12px 30px rgba(24, 54, 82, .08);
+    }
+
+    body {
+      background: #eef1f3;
+    }
+
+    main {
+      background: #eef1f3;
+    }
+
+    .menu-view.active {
+      background: #eef1f3;
+    }
+
+    header {
+      border-bottom: 3px solid transparent;
+      border-image: linear-gradient(90deg, #0878bd, #f5a623, #ed1c24) 1;
+    }
+
+    .mark {
+      background:
+        radial-gradient(circle at 30% 25%, #0b8fd2 0 28%, transparent 29%),
+        radial-gradient(circle at 70% 40%, #f5a623 0 28%, transparent 29%),
+        radial-gradient(circle at 45% 76%, #ed1c24 0 28%, transparent 29%),
+        #ffffff;
+      color: #111;
+      border: 1px solid #edf1f4;
+      box-shadow: 0 10px 24px rgba(8, 120, 189, .14);
+    }
+
+    .brand-partners {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .partner {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border-radius: 999px;
+      padding: 3px 9px;
+      background: #fff;
+      border: 1px solid #dce5ea;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .partner.cj {
+      color: #111;
+      border-left: 5px solid #0878bd;
+    }
+
+    .partner.axtra {
+      color: #1d6fb8;
+      border-left: 5px solid #f5c21b;
+    }
+
+    .partner.makro {
+      color: #ed1c24;
+      border-left: 5px solid #ed1c24;
+    }
+
+    .menu {
+      background:
+        linear-gradient(180deg, #075f98 0%, #064f7f 58%, #143f66 100%);
+      border-color: rgba(8, 120, 189, .35);
+      box-shadow: 0 18px 42px rgba(8, 66, 112, .24);
+    }
+
+    .menu::after {
+      content: "";
+      height: 5px;
+      border-radius: 999px;
+      margin-top: auto;
+      background: linear-gradient(90deg, #0878bd, #f5a623, #ed1c24);
+    }
+
+    .menu-title {
+      color: #d9edf9;
+    }
+
+    .menu-toggle {
+      color: #075f98;
+    }
+
+    .menu-button {
+      color: #eef7fc;
+      border-color: rgba(255, 255, 255, .10);
+    }
+
+    .menu-button:hover {
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .menu-button.active {
+      color: #075f98;
+      background: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .stat::before {
+      background: #0878bd;
+    }
+
+    .stat:nth-child(2)::before { background: #f5a623; }
+    .stat:nth-child(3)::before { background: #1f8f57; }
+    .stat:nth-child(4)::before { background: #ed1c24; }
+    .stat:nth-child(5)::before { background: #1d6fb8; }
+
+    button {
+      background: #0878bd;
+    }
+
+    button:hover {
+      background: #075f98;
+    }
+
+    button.ghost {
+      color: #075f98;
+      border-color: #b9d6e8;
+    }
+
+    button.ghost:hover {
+      background: #edf7fc;
+    }
+
+    button.danger {
+      background: #ed1c24;
+    }
+
+    .bar-fill {
+      background: linear-gradient(90deg, #0878bd, #f5a623);
+    }
+
+    .pending {
+      color: #a86300;
+      background: #fff4dc;
+    }
+
+    .received {
+      color: #1f7a4a;
+      background: #e8f7ed;
+    }
+
+    .quick-card::after {
+      color: #ed1c24;
+    }
+
+    th {
+      background: #eef6fb;
+      color: #31566d;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #0878bd;
+      box-shadow: 0 0 0 3px rgba(8, 120, 189, .14);
+    }
+
+    @media (max-width: 620px) {
+      .brand-partners {
+        gap: 5px;
+      }
+
+      .partner {
+        font-size: 11px;
+        padding-inline: 8px;
+      }
+
+      .menu .menu-toggle {
+        background: #075f98;
+      }
+
+      body.sidebar-open .menu .menu-toggle {
+        background: #ffffff;
+        color: #075f98;
+      }
+    }
+
+    /* Reference layout: wide brand header + blue vertical menu */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      min-height: 94px;
+      display: flex;
+      align-items: center;
+      padding: 10px 36px 12px;
+      background: #fff;
+      border-bottom: 4px solid transparent;
+      border-image: linear-gradient(90deg, #0878bd 0 32%, #f5a623 47%, #ed1c24 100%) 1;
+    }
+
+    body {
+      padding-top: var(--header-height, 156px);
+    }
+
+    .header-row {
+      width: 100%;
+      max-width: none;
+      display: grid;
+      grid-template-columns: minmax(720px, 1.1fr) minmax(520px, 1fr) minmax(300px, .8fr);
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-strip {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      min-width: 0;
+    }
+
+    .logo-cj {
+      width: 210px;
+      height: auto;
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .logo-axtra-makro {
+      width: 230px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      flex: 0 0 230px;
+    }
+
+    .cj-logo {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 190px;
+      min-height: 62px;
+      color: #050505;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .cj-logo strong {
+      font-size: 28px;
+      margin-left: 0;
+      z-index: 1;
+    }
+
+    .cj-logo b {
+      font-size: 20px;
+      z-index: 1;
+    }
+
+    .cj-logo span {
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .cj-blue {
+      width: 38px;
+      height: 50px;
+      left: 42px;
+      top: 0;
+      background: #0b8fd2;
+      transform: rotate(-18deg);
+    }
+
+    .cj-orange {
+      width: 38px;
+      height: 36px;
+      left: 76px;
+      top: 23px;
+      background: #f5a623;
+      transform: rotate(28deg);
+    }
+
+    .cj-red {
+      width: 38px;
+      height: 46px;
+      left: 55px;
+      top: 42px;
+      background: #ed1c24;
+      transform: rotate(10deg);
+    }
+
+    .axtra-logo {
+      color: #1d6fb8;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .axtra-logo span {
+      color: #f5c21b;
+    }
+
+    .logo-divider {
+      width: 2px;
+      height: 56px;
+      background: #8c8c8c;
+    }
+
+    .makro-logo {
+      color: #ed1c24;
+      font-size: 34px;
+      font-weight: 900;
+      -webkit-text-stroke: 1px #ed1c24;
+      text-shadow: 0 1px 0 #fff;
+      white-space: nowrap;
+    }
+
+    .title-block {
+      text-align: center;
+      min-width: 0;
+    }
+
+    .title-block h1 {
+      color: #2c73b9;
+      font-size: clamp(28px, 2.15vw, 40px);
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .today {
+      justify-self: end;
+      color: #8a9697;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    main {
+      max-width: none;
+      margin-left: 430px;
+      margin-right: 72px;
+      padding-top: 34px;
+      transition: margin-left .22s ease;
+    }
+
+    .menu {
+      top: var(--sidebar-top, 172px);
+      left: 0;
+      bottom: 0;
+      width: 360px;
+      padding: 28px 24px;
+      border-radius: 8px 8px 0 0;
+      background: linear-gradient(180deg, #096ca3 0%, #075c8d 48%, #07517d 100%);
+      border: 0;
+      box-shadow: 0 22px 48px rgba(7, 81, 125, .24);
+    }
+
+    .menu-head {
+      padding-bottom: 22px;
+      margin-bottom: 18px;
+      border-bottom-color: rgba(255, 255, 255, .22);
+    }
+
+    .menu-title {
+      color: #d6edf8;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .menu-toggle {
+      width: 62px;
+      min-height: 62px;
+      border: 3px solid #083b5b;
+      border-radius: 8px;
+      color: #075f98;
+      background: #fff;
+      font-size: 34px;
+    }
+
+    .menu-button {
+      min-height: 72px;
+      border-radius: 8px;
+      border-color: rgba(255, 255, 255, .10);
+      background: rgba(255, 255, 255, .035);
+      color: #f4fbff;
+      font-size: 24px;
+      font-weight: 900;
+      padding: 12px 16px;
+    }
+
+    .menu-button::before {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      border: 2px solid #082b42;
+      border-radius: 2px;
+      color: #075f98;
+      font-size: 30px;
+    }
+
+    .menu-button.icon-image::before {
+      display: none;
+    }
+
+    .menu-icon {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      flex: 0 0 52px;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .menu-button.active {
+      background: #fff;
+      color: #075f98;
+      border-color: #fff;
+    }
+
+    .menu::after {
+      display: none;
+    }
+
+    body.sidebar-collapsed main {
+      margin-left: 132px;
+    }
+
+    body.sidebar-collapsed .menu {
+      width: 100px;
+      padding-inline: 18px;
+    }
+
+    .stats {
+      grid-template-columns: repeat(5, minmax(160px, 1fr));
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .stat {
+      min-height: 138px;
+      padding: 28px 26px;
+      border-radius: 8px;
+      box-shadow: 0 12px 28px rgba(65, 77, 83, .12);
+    }
+
+    .stat span {
+      font-size: 18px;
+      font-weight: 800;
+      color: #7b8b8d;
+    }
+
+    .stat strong {
+      font-size: 46px;
+      margin-top: 12px;
+    }
+
+    .quick-actions {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .quick-card {
+      min-height: 142px;
+      padding: 36px 34px;
+      border-radius: 8px;
+      box-shadow: 0 12px 28px rgba(65, 77, 83, .12);
+    }
+
+    .quick-card strong {
+      font-size: 26px;
+      color: #142525;
+    }
+
+    .quick-card span {
+      font-size: 18px;
+      color: #7b8b8d;
+    }
+
+    .quick-card::after {
+      content: ">";
+      right: 24px;
+      top: 26px;
+      color: #ed1c24;
+      font-size: 34px;
+      font-weight: 900;
+    }
+
+    .dashboard-grid {
+      grid-template-columns: minmax(0, 1.35fr) minmax(360px, 1fr);
+      gap: 24px;
+    }
+
+    .dashboard-panel {
+      min-height: 235px;
+      padding: 34px;
+      border-radius: 8px;
+      box-shadow: 0 12px 28px rgba(65, 77, 83, .12);
+    }
+
+    .dashboard-panel h2 {
+      font-size: 28px;
+      margin-bottom: 22px;
+    }
+
+    .empty {
+      font-size: 20px;
+      font-weight: 700;
+      color: #7b8b8d;
+    }
+
+    section, .toolbar, .table-wrap, .report-panel {
+      border-radius: 8px;
+      box-shadow: 0 12px 28px rgba(65, 77, 83, .12);
+    }
+
+    @media (max-width: 1180px) {
+      .header-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .logo-strip {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .logo-cj {
+        width: 300px;
+      }
+
+      .logo-axtra-makro {
+        width: 330px;
+      }
+
+      .today {
+        justify-self: center;
+      }
+
+      main {
+        margin-left: 112px;
+        margin-right: 24px;
+      }
+
+      .menu {
+        width: 100px;
+        padding-inline: 18px;
+      }
+
+      .menu-title {
+        opacity: 0;
+      }
+
+      .menu-head {
+        justify-content: center;
+      }
+
+      .menu-button {
+        justify-content: center;
+        padding-inline: 0;
+        font-size: 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      header {
+        padding: 10px 12px 12px;
+        min-height: auto;
+        position: fixed;
+      }
+
+      .header-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .logo-strip {
+        gap: 7px;
+        justify-content: center;
+        flex-wrap: nowrap;
+      }
+
+      .logo-cj {
+        width: 122px !important;
+      }
+
+      .logo-axtra-makro {
+        width: 172px !important;
+        flex-basis: 172px !important;
+      }
+
+      .title-block h1 {
+        font-size: 24px;
+        line-height: 1.05;
+      }
+
+      .today {
+        display: block;
+        font-size: 11px;
+        white-space: normal;
+        line-height: 1.25;
+        justify-self: center;
+      }
+
+      .menu {
+        top: var(--sidebar-top, 102px);
+        left: 0;
+        width: min(310px, calc(100vw - 24px));
+        padding: 18px 14px;
+      }
+
+      .menu .menu-toggle {
+        top: 0;
+        right: -58px;
+        width: 48px;
+        min-height: 48px;
+        font-size: 26px;
+        border-width: 2px;
+      }
+
+      body.sidebar-open .menu .menu-toggle {
+        width: 48px;
+        min-height: 48px;
+      }
+
+      .menu-title {
+        opacity: 1;
+        font-size: 15px;
+      }
+
+      .menu-button {
+        min-height: 64px;
+        justify-content: flex-start;
+        font-size: 20px;
+        padding-inline: 12px;
+      }
+
+      .menu-button::before {
+        width: 44px;
+        height: 44px;
+        font-size: 24px;
+      }
+
+      .menu-icon {
+        width: 44px;
+        height: 44px;
+        flex-basis: 44px;
+      }
+
+      main {
+        margin: 0;
+        padding: 20px 14px 28px;
+      }
+
+      .stats, .quick-actions, .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .stat {
+        min-height: 108px;
+        padding: 20px;
+      }
+
+      .quick-card {
+        min-height: 108px;
+        padding: 24px 22px;
+      }
+    }
+
+    html,
+    body,
+    main,
+    .menu-view.active {
+      background: #f5f8fa !important;
+    }
+
+    .menu-head,
+    body.sidebar-collapsed .menu-head {
+      justify-content: flex-start !important;
+    }
+
+    .menu-toggle {
+      flex: 0 0 auto;
+    }
+
+    /* Larger desktop work area */
+    main {
+      margin-left: 430px;
+      margin-right: 32px;
+      padding-top: 34px;
+    }
+
+    .workspace.form-only {
+      grid-template-columns: minmax(620px, 820px);
+    }
+
+    section {
+      padding: 26px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    label {
+      font-size: 15px;
+    }
+
+    input, select, textarea {
+      padding: 13px 14px;
+      font-size: 15px;
+    }
+
+    .form-grid {
+      gap: 15px;
+    }
+
+    .photo-preview {
+      grid-template-columns: 150px 1fr;
+    }
+
+    .photo-preview img {
+      width: 150px;
+      height: 112px;
+    }
+
+    @media (max-width: 1180px) {
+      main {
+        margin-left: 112px;
+        margin-right: 24px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      main {
+        margin: 0;
+        padding: 20px 14px 28px;
+      }
+
+      .workspace.form-only {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 18px;
+      }
+    }
+
+    .menu-user {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, .22);
+      display: grid;
+      gap: 10px;
+      color: #d6edf8;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .menu-logout {
+      width: 100%;
+      background: #ffffff;
+      color: #075f98;
+      min-height: 44px;
+      font-size: 18px;
+    }
+
+    body.sidebar-collapsed .menu-user span {
+      display: none;
+    }
+
+    body.sidebar-collapsed .menu-logout {
+      font-size: 0;
+      min-height: 52px;
+      padding: 0;
+    }
+
+    body.sidebar-collapsed .menu-logout::before {
+      content: "ออก";
+      font-size: 16px;
+    }
+
+    body {
+      font-size: 120%;
+    }
+
+    input, select, textarea, button {
+      font-size: 1em;
+    }
+
+    .login-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #075f98, #0878bd);
+    }
+
+    body.login-required {
+      overflow: hidden;
+    }
+
+    body.login-required .login-screen {
+      display: grid;
+    }
+
+    body.login-required header,
+    body.login-required main,
+    body.login-required .menu,
+    body.login-required .menu-overlay {
+      display: none !important;
+    }
+
+    .login-card {
+      width: min(420px, 100%);
+      display: grid;
+      gap: 14px;
+      padding: 28px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .2);
+    }
+
+    .login-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .login-logo img:first-child {
+      width: 150px;
+    }
+
+    .login-logo img:last-child {
+      width: 150px;
+    }
+
+    .login-card h2 {
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    #loginError {
+      color: #ed1c24;
+      min-height: 18px;
+      text-align: center;
+    }
+
+    /* Dashboard redesign */
+    .dashboard-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+      padding: 26px 30px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #075f98 0%, #0878bd 55%, #0e8cae 100%);
+      color: #fff;
+      box-shadow: 0 14px 32px rgba(8, 88, 142, .22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dashboard-hero::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      top: -70px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(245, 194, 27, .28);
+    }
+
+    .dashboard-hero span {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+      opacity: .82;
+      margin-bottom: 4px;
+    }
+
+    .dashboard-hero h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 34px;
+      line-height: 1.1;
+    }
+
+    .dashboard-hero button {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      color: #075f98;
+      min-height: 48px;
+      padding-inline: 18px;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, .12);
+    }
+
+    .drive-controls {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      max-width: 560px;
+    }
+
+    .drive-controls .drive-button {
+      background: rgba(255, 255, 255, .14);
+      color: #fff;
+      border-color: rgba(255, 255, 255, .36);
+      box-shadow: none;
+    }
+
+    .drive-controls span {
+      flex: 1 1 100%;
+      color: rgba(255, 255, 255, .82);
+      font-size: 15px;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    #dashboardView .stats {
+      grid-template-columns: repeat(5, minmax(150px, 1fr));
+      gap: 14px;
+    }
+
+    #dashboardView .stat {
+      min-height: 112px;
+      padding: 20px 20px 18px;
+      background: #fff;
+      border: 0;
+      box-shadow: 0 10px 24px rgba(42, 57, 64, .10);
+    }
+
+    #dashboardView .stat span {
+      font-size: 15px;
+      color: #6f7f82;
+    }
+
+    #dashboardView .stat strong {
+      font-size: 42px;
+      margin-top: 8px;
+    }
+
+    #dashboardView .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 4px 0 22px;
+    }
+
+    #dashboardView .quick-card {
+      min-height: 118px;
+      padding: 24px 24px 22px;
+      border: 0;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(42, 57, 64, .10);
+      overflow: hidden;
+    }
+
+    #dashboardView .quick-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: #0878bd;
+    }
+
+    #dashboardView .quick-card:nth-child(2)::before {
+      background: #f5a623;
+    }
+
+    #dashboardView .quick-card:nth-child(3)::before {
+      background: #ed1c24;
+    }
+
+    #dashboardView .quick-card strong {
+      font-size: 25px;
+    }
+
+    #dashboardView .quick-card span {
+      max-width: 260px;
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    #dashboardView .dashboard-grid {
+      grid-template-columns: minmax(0, 1.2fr) minmax(360px, .95fr);
+      gap: 18px;
+    }
+
+    #dashboardView .dashboard-panel {
+      min-height: 230px;
+      background: #fff;
+      border: 0;
+      box-shadow: 0 10px 24px rgba(42, 57, 64, .10);
+    }
+
+    #dashboardView .dashboard-panel h2 {
+      font-size: 26px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e3ebef;
+    }
+
+    @media (max-width: 1180px) {
+      #dashboardView .stats,
+      #dashboardView .quick-actions,
+      #dashboardView .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .dashboard-hero {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .dashboard-hero h2 {
+        font-size: 28px;
+      }
+
+      .drive-controls {
+        justify-content: stretch;
+      }
+
+      .drive-controls button {
+        flex: 1 1 145px;
+      }
+
+      .drive-controls span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="bootLoading" style="position:fixed;inset:0;z-index:99998;display:grid;place-items:center;background:#eef4f2;color:#12302d;font-family:Tahoma,sans-serif;text-align:center;padding:24px">
+    <div style="background:#fff;border:1px solid #cfdcda;border-radius:10px;padding:22px;box-shadow:0 12px 36px rgba(0,0,0,.12)">
+      <strong style="font-size:24px">กำลังโหลดระบบบันทึกพัสดุ</strong>
+      <div style="margin-top:8px;color:#63736f">ถ้าค้างหน้านี้ ให้ตรวจว่า Deploy เป็นเวอร์ชันใหม่แล้ว</div>
+    </div>
+  </div>
+  <div id="bootError" style="display:none;position:fixed;inset:16px;z-index:99999;background:#fff;border:2px solid #ed1c24;border-radius:8px;padding:16px;color:#182625;font-family:Tahoma,sans-serif;white-space:pre-wrap;overflow:auto"></div>
+  <script>
+    window.addEventListener("error", function(event) {
+      var box = document.getElementById("bootError");
+      if (!box) return;
+      box.style.display = "block";
+      box.textContent = "หน้าเว็บโหลดไม่สำเร็จ\n" + (event.message || "ไม่ทราบสาเหตุ") + "\nบรรทัด: " + (event.lineno || "-");
+    });
+  </script>
+  <header>
+    <div class="header-row">
+      <div class="logo-strip" aria-label="โลโก้บริษัท">
+        <img class="logo-cj" src="assets/cj-logistics.png.png" alt="CJ Logistics">
+        <img class="logo-axtra-makro" src="assets/cp-axtra-makro.png" alt="CP AXTRA makro">
+      </div>
+      <div class="title-block">
+        <h1>ระบบบันทึกรายการพัสดุ</h1>
+      </div>
+      <div class="today" id="todayText"></div>
+    </div>
+  </header>
+
+  <div class="login-screen" id="loginScreen">
+    <form class="login-card" id="loginForm">
+      <div class="login-logo">
+        <img src="assets/cj-logistics.png.png" alt="CJ Logistics">
+        <img src="assets/cp-axtra-makro.png" alt="CP AXTRA makro">
+      </div>
+      <h2>เข้าสู่ระบบ</h2>
+      <label>ชื่อผู้ใช้
+        <input id="loginUsername" autocomplete="username" required>
+      </label>
+      <label>รหัสผ่าน
+        <input id="loginPassword" type="password" autocomplete="current-password" required>
+      </label>
+      <button type="submit">เข้าสู่ระบบ</button>
+      <p class="hint" id="loginError"></p>
+      <p class="hint">เริ่มต้น: admin / 1234 หรือ staff / 1234</p>
+    </form>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <main>
+    <div class="menu-view active" id="dashboardView">
+    <div class="dashboard-hero">
+      <div>
+        <span>ภาพรวมงานพัสดุ</span>
+        <h2>แดชบอร์ดรับพัสดุ</h2>
+      </div>
+      <button data-go-menu="entryView" type="button">บันทึกพัสดุใหม่</button>
+    </div>
+    <div class="toolbar dashboard-filter" aria-label="ตัวกรองแดชบอร์ด">
+      <label>จากวันที่
+        <input id="dashboardDateFrom" type="date">
+      </label>
+      <label>ถึงวันที่
+        <input id="dashboardDateTo" type="date">
+      </label>
+      <div class="filter-actions">
+        <button class="secondary" data-dashboard-range="today" type="button">วันนี้</button>
+        <button class="secondary" data-dashboard-range="7days" type="button">7 วัน</button>
+        <button class="ghost" data-dashboard-range="all" type="button">ทั้งหมด</button>
+      </div>
+    </div>
+    <div class="stats" aria-label="สรุปพัสดุ">
+      <div class="stat"><span>ทั้งหมด</span><strong id="totalCount">0</strong></div>
+      <div class="stat"><span>รอรับ</span><strong id="pendingCount">0</strong></div>
+      <div class="stat"><span>รับแล้ว</span><strong id="receivedCount">0</strong></div>
+      <div class="stat"><span>มีรูป</span><strong id="photoCount">0</strong></div>
+      <div class="stat"><span>ในช่วงนี้</span><strong id="todayCount">0</strong></div>
+    </div>
+
+    <div class="quick-actions">
+      <button class="quick-card" data-go-menu="entryView" type="button">
+        <strong>บันทึกพัสดุ</strong>
+        <span>เพิ่มรายการใหม่และถ่ายรูป</span>
+      </button>
+      <button class="quick-card" data-go-menu="listView" type="button">
+        <strong>รายการพัสดุ</strong>
+        <span>ค้นหา แก้ไข และปิดงานรับแล้ว</span>
+      </button>
+      <button class="quick-card" data-go-menu="reportView" type="button">
+        <strong>รีพอร์ต</strong>
+        <span>กรองวันที่ พิมพ์ และส่งออก CSV</span>
+      </button>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="dashboard-panel">
+        <h2>พัสดุรอรับล่าสุดในช่วงที่เลือก</h2>
+        <div class="recent-list" id="recentPending"></div>
+      </div>
+      <div class="dashboard-panel">
+        <h2>ขนส่งในช่วงที่เลือก</h2>
+        <div class="bars" id="dashboardBars"></div>
+      </div>
+    </div>
+    </div>
+
+    <nav class="menu" aria-label="เมนูระบบ">
+      <div class="menu-head">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="เปิด/ปิดเมนู" aria-expanded="true">☰</button>
+        <div class="menu-title">เมนูระบบ</div>
+      </div>
+      <button class="menu-button icon-image active" data-icon="▣" data-menu="dashboardView" type="button"><img class="menu-icon" src="assets/แดชบอร์ด.png" alt="">แดชบอร์ด</button>
+      <button class="menu-button icon-image" data-icon="＋" data-menu="entryView" type="button"><img class="menu-icon" src="assets/บันทึกพัสดุ.png" alt="">บันทึกพัสดุ</button>
+      <button class="menu-button icon-image" data-icon="☷" data-menu="listView" type="button"><img class="menu-icon" src="assets/รายการพัสดุ.png" alt="">รายการพัสดุ</button>
+      <button class="menu-button icon-image" data-icon="▦" data-menu="reportView" type="button"><img class="menu-icon" src="assets/รีพอร์ต.png" alt="">รีพอร์ต</button>
+      <div class="menu-user">
+        <span id="menuUserText"></span>
+        <button class="menu-logout" id="logoutButton" type="button">ออกจากระบบ</button>
+      </div>
+    </nav>
+
+    <div class="menu-view" id="entryView">
+    <div class="workspace form-only">
+      <section aria-labelledby="formTitle">
+        <h2 id="formTitle">บันทึกพัสดุเข้า</h2>
+        <form class="form-grid" id="parcelForm">
+          <label>เลขพัสดุ / Tracking
+            <input id="tracking" autocomplete="off" required placeholder="เช่น TH123456789">
+          </label>
+          <div class="split">
+            <label>บริษัทขนส่ง
+              <select id="carrier">
+                <option>Flash</option>
+                <option>Kerry</option>
+                <option>J&T</option>
+                <option>ไปรษณีย์ไทย</option>
+                <option>Shopee Express</option>
+                <option>Lazada Logistics</option>
+                <option>อื่น ๆ</option>
+              </select>
+            </label>
+            <label>ประเภท
+              <select id="parcelType">
+                <option>กล่อง</option>
+                <option>ซอง</option>
+                <option>เอกสาร</option>
+                <option>อาหาร/ของสด</option>
+                <option>อื่น ๆ</option>
+              </select>
+            </label>
+          </div>
+          <label>ชื่อผู้รับ
+            <input id="recipient" autocomplete="off" required placeholder="ชื่อ-นามสกุล / หน่วยงาน">
+          </label>
+          <div class="split">
+            <label>บ้าน/ห้อง/แผนก
+              <input id="location" autocomplete="off" placeholder="เช่น A-1204">
+            </label>
+            <label>เบอร์ติดต่อ
+              <input id="phone" inputmode="tel" autocomplete="off" placeholder="08x-xxx-xxxx">
+            </label>
+          </div>
+          <label>ผู้ส่ง / ร้านค้า
+            <input id="sender" autocomplete="off" placeholder="ถ้ามี">
+          </label>
+          <label>ผู้บันทึก
+            <input id="createdBy" autocomplete="name" required placeholder="ชื่อพนักงาน/รหัสผู้บันทึก">
+          </label>
+          <label>รูปพัสดุ
+            <input class="hidden-file" id="photoInput" type="file" accept="image/*" capture="environment">
+          </label>
+          <div class="photo-preview">
+            <img id="photoPreview" alt="ตัวอย่างรูปพัสดุ">
+            <div>
+              <strong>ถ่ายรูปพร้อมไทม์สแตมป์</strong>
+              <p class="hint" id="photoStampText">ยังไม่มีรูป ระบบจะประทับวันที่และเวลาลงบนรูปอัตโนมัติ</p>
+              <div class="photo-buttons">
+                <button id="takePhoto" type="button">ถ่ายรูป</button>
+                <button class="ghost" id="choosePhoto" type="button">เลือกรูป</button>
+                <button class="secondary" id="removePhoto" type="button">ลบรูป</button>
+              </div>
+            </div>
+          </div>
+          <label>หมายเหตุ
+            <textarea id="note" placeholder="เช่น กล่องใหญ่, ของแตกง่าย, ฝากไว้ในตู้"></textarea>
+          </label>
+          <div class="actions">
+            <button id="saveButton" type="submit">บันทึกพัสดุ</button>
+            <button class="secondary" id="resetButton" type="reset">ล้างฟอร์ม</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    </div>
+
+    <div class="menu-view" id="listView">
+      <div>
+        <div class="toolbar">
+          <div class="tool-row">
+            <input id="searchBox" placeholder="ค้นหาเลขพัสดุ ชื่อผู้รับ ห้อง ขนส่ง หรือผู้มารับ">
+            <select id="statusFilter">
+              <option value="all">ทุกสถานะ</option>
+              <option value="pending">รอรับ</option>
+              <option value="received">รับแล้ว</option>
+            </select>
+            <select id="carrierFilter">
+              <option value="all">ทุกขนส่ง</option>
+            </select>
+            <select id="photoFilter">
+              <option value="all">ทุกรูป</option>
+              <option value="with">มีรูป</option>
+              <option value="without">ไม่มีรูป</option>
+            </select>
+          </div>
+          <div class="actions">
+            <button class="ghost" id="printButton" type="button">พิมพ์รายการ</button>
+            <button class="ghost" id="exportButton" type="button">ส่งออก CSV</button>
+            <button class="ghost" id="exportExcelButton" type="button">ส่งออก Excel</button>
+            <button class="ghost" id="exportTextButton" type="button">ส่งออก Text</button>
+            <button class="danger" id="clearButton" type="button">ล้างข้อมูลทั้งหมด</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>รูป</th>
+                <th>เวลาเข้า</th>
+                <th>เลขพัสดุ</th>
+                <th>ผู้รับ</th>
+                <th>ขนส่ง</th>
+                <th>ผู้บันทึก</th>
+                <th>รายละเอียด</th>
+                <th>สถานะ</th>
+                <th>จัดการ</th>
+              </tr>
+            </thead>
+            <tbody id="parcelRows"></tbody>
+          </table>
+          <div class="empty" id="emptyState">ยังไม่มีรายการพัสดุ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-view" id="reportView">
+    <div class="report-panel">
+      <h2>รีพอร์ต</h2>
+      <div class="report-grid">
+        <label>จากวันที่
+          <input id="dateFrom" type="date">
+        </label>
+        <label>ถึงวันที่
+          <input id="dateTo" type="date">
+        </label>
+        <label>สถานะ
+          <select id="reportStatus">
+            <option value="all">ทุกสถานะ</option>
+            <option value="pending">รอรับ</option>
+            <option value="received">รับแล้ว</option>
+          </select>
+        </label>
+        <label>บริษัทขนส่ง
+          <select id="reportCarrier">
+            <option value="all">ทุกขนส่ง</option>
+          </select>
+        </label>
+      </div>
+      <div class="actions">
+        <button id="runReport" type="button">ดูรีพอร์ต</button>
+        <button class="ghost" id="exportReport" type="button">ส่งออกรีพอร์ต CSV</button>
+        <button class="ghost" id="exportReportExcel" type="button">ส่งออก Excel</button>
+        <button class="ghost" id="exportReportText" type="button">ส่งออก Text</button>
+        <button class="ghost" id="pdfReport" type="button">ส่งออก PDF</button>
+        <button class="ghost" id="printReport" type="button">พิมพ์รีพอร์ต</button>
+      </div>
+      <div class="bars" id="carrierBars"></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>วันที่</th>
+            <th>เลขพัสดุ</th>
+            <th>ผู้รับ</th>
+            <th>ขนส่ง</th>
+            <th>ประเภท</th>
+            <th>ผู้บันทึก</th>
+            <th>สถานะ</th>
+            <th>ผู้มารับ</th>
+            <th>รูป</th>
+          </tr>
+        </thead>
+      <tbody id="reportRows"></tbody>
+      </table>
+      <div class="empty" id="reportEmpty">ยังไม่มีข้อมูลในช่วงวันที่นี้</div>
+    </div>
+    </div>
+  </main>
+
+  <dialog id="photoDialog">
+    <div class="modal-head">
+      <strong id="photoTitle">รูปพัสดุ</strong>
+      <button class="secondary" id="closePhoto" type="button">ปิด</button>
+    </div>
+    <div class="modal-body">
+      <img id="largePhoto" alt="รูปพัสดุขนาดใหญ่">
+    </div>
+  </dialog>
+
+  <dialog id="cameraDialog">
+    <div class="modal-head">
+      <strong>ถ่ายรูปพัสดุ</strong>
+      <button class="secondary" id="closeCamera" type="button">ปิด</button>
+    </div>
+    <div class="modal-body camera-body">
+      <video id="cameraPreview" autoplay playsinline muted></video>
+      <canvas id="cameraCanvas" hidden></canvas>
+      <div class="actions camera-actions">
+        <button id="capturePhoto" type="button">ถ่ายภาพนี้</button>
+        <button class="ghost" id="choosePhotoFromCamera" type="button">เลือกไฟล์แทน</button>
+      </div>
+      <p class="hint" id="cameraHint">ถ้าใช้มือถือ ระบบจะพยายามเปิดกล้องหลัง</p>
+    </div>
+  </dialog>
+
+  <dialog id="receiveDialog">
+    <div class="modal-head">
+      <strong>บันทึกผู้รับพัสดุ</strong>
+      <button class="secondary" id="closeReceiveDialog" type="button">ปิด</button>
+    </div>
+    <div class="modal-body">
+      <label>ชื่อผู้รับของ
+        <input id="receiveName" autocomplete="off" placeholder="ชื่อผู้มารับพัสดุ">
+      </label>
+      <input class="hidden-file" id="receiverPhotoInput" type="file" accept="image/*" capture="environment">
+      <div class="photo-preview">
+        <img id="receiverPhotoPreview" alt="ตัวอย่างรูปผู้รับพัสดุ">
+        <div>
+          <strong>รูปผู้รับพัสดุ</strong>
+          <p class="hint" id="receiverPhotoStampText">ยังไม่มีรูปผู้รับ</p>
+          <div class="photo-buttons">
+            <button id="takeReceiverPhoto" type="button">ถ่ายรูปผู้รับ</button>
+            <button class="ghost" id="chooseReceiverPhoto" type="button">เลือกรูป</button>
+            <button class="secondary" id="removeReceiverPhoto" type="button">ลบรูป</button>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="saveReceive" type="button">บันทึกรับพัสดุ</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const storageKey = "gate-parcel-single-page-v1";
+    const sessionKey = "gate-parcel-session-v1";
+    // วาง URL จาก Google Apps Script Web App ตรงนี้เมื่อต้องการใช้ Google Sheet/Drive เป็นหลังบ้าน
+    const sheetWebAppUrl = "https://script.google.com/macros/s/AKfycbxaHCQJ-u_e6bwxT17VSzsm7vFczPNSQeDNSyFLTh4kmTUA4oaTsrbjOtVFCn74C7xZ/exec";
+    const users = [
+      { username: "admin", password: "1234", name: "Admin", role: "admin" },
+      { username: "staff", password: "1234", name: "Staff", role: "staff" }
+    ];
+    const $ = (selector) => document.querySelector(selector);
+    const fields = {
+      tracking: $("#tracking"),
+      carrier: $("#carrier"),
+      parcelType: $("#parcelType"),
+      recipient: $("#recipient"),
+      location: $("#location"),
+      phone: $("#phone"),
+      sender: $("#sender"),
+      createdBy: $("#createdBy"),
+      note: $("#note")
+    };
+
+    let parcels = readLocal();
+    let editingId = null;
+    let photoData = "";
+    let photoTakenAt = "";
+    let cameraStream = null;
+    let cameraMode = "parcel";
+    let receivingParcel = null;
+    let receiverPhotoData = "";
+    let receiverPhotoTakenAt = "";
+    let currentUser = readSession();
+    let backendSaveTimer = null;
+
+    const dateToday = new Date().toISOString().slice(0, 10);
+    $("#todayText").textContent = new Intl.DateTimeFormat("th-TH", { dateStyle: "full", timeStyle: "short" }).format(new Date());
+    $("#dashboardDateFrom").value = dateToday;
+    $("#dashboardDateTo").value = dateToday;
+    $("#dateFrom").value = dateToday;
+    $("#dateTo").value = dateToday;
+    setPhoto("");
+    updateChromeMetrics();
+    applyLoginState();
+    loadBackendData();
+
+    window.addEventListener("resize", updateChromeMetrics);
+
+    $("#loginForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const username = $("#loginUsername").value.trim();
+      const password = $("#loginPassword").value;
+      const user = users.find((item) => item.username === username && item.password === password);
+      if (!user) {
+        $("#loginError").textContent = "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
+        return;
+      }
+      currentUser = { username: user.username, name: user.name, role: user.role };
+      localStorage.setItem(sessionKey, JSON.stringify(currentUser));
+      $("#loginForm").reset();
+      $("#loginError").textContent = "";
+      applyLoginState();
+    });
+
+    $("#logoutButton").addEventListener("click", () => {
+      localStorage.removeItem(sessionKey);
+      currentUser = null;
+      applyLoginState();
+    });
+
+    $("#menuToggle").addEventListener("click", () => {
+      if (isMobileMenu()) {
+        document.body.classList.toggle("sidebar-open");
+      } else {
+        document.body.classList.toggle("sidebar-collapsed");
+      }
+      syncMenuButtonState();
+    });
+
+    $("#menuOverlay").addEventListener("click", closeMobileMenu);
+
+    document.querySelectorAll(".menu-button").forEach((button) => {
+      button.addEventListener("click", () => switchMenu(button.dataset.menu));
+    });
+
+    document.querySelectorAll("[data-go-menu]").forEach((button) => {
+      button.addEventListener("click", () => switchMenu(button.dataset.goMenu));
+    });
+
+    $("#parcelForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const existing = editingId ? parcels.find((item) => item.id === editingId) : null;
+      const now = new Date().toISOString();
+      const actor = currentUser?.name || fields.createdBy.value.trim();
+      const parcel = {
+        id: editingId || crypto.randomUUID(),
+        createdAt: existing?.createdAt || now,
+        status: existing?.status || "pending",
+        receivedAt: existing?.receivedAt || "",
+        receivedBy: existing?.receivedBy || "",
+        receiverPhoto: existing?.receiverPhoto || "",
+        receiverPhotoTakenAt: existing?.receiverPhotoTakenAt || "",
+        receiverPhotoFileId: existing?.receiverPhotoFileId || "",
+        receiverPhotoUrl: existing?.receiverPhotoUrl || "",
+        createdBy: existing?.createdBy || actor,
+        updatedBy: actor,
+        tracking: fields.tracking.value.trim(),
+        carrier: fields.carrier.value,
+        parcelType: fields.parcelType.value,
+        recipient: fields.recipient.value.trim(),
+        location: fields.location.value.trim(),
+        phone: fields.phone.value.trim(),
+        sender: fields.sender.value.trim(),
+        note: fields.note.value.trim(),
+        photo: photoData,
+        photoTakenAt,
+        photoFileId: existing?.photoFileId || "",
+        photoUrl: existing?.photoUrl || "",
+        updatedAt: now,
+        logs: appendLog(existing, editingId ? "แก้ไขรายการ" : "บันทึกรายการ", actor, now)
+      };
+      if (!parcel.tracking || !parcel.recipient || !parcel.createdBy) return;
+
+      parcels = [parcel, ...parcels.filter((item) => item.id !== parcel.id)].sort(sortNewest);
+      writeLocal();
+      $("#parcelForm").reset();
+      editingId = null;
+      $("#saveButton").textContent = "บันทึกพัสดุ";
+      $("#photoInput").value = "";
+      setPhoto("");
+      if (currentUser) fields.createdBy.value = currentUser.name;
+      renderAll();
+      switchMenu("listView");
+      fields.tracking.focus();
+    });
+
+    $("#resetButton").addEventListener("click", () => {
+      editingId = null;
+      $("#saveButton").textContent = "บันทึกพัสดุ";
+      $("#photoInput").value = "";
+      setPhoto("");
+    });
+
+    $("#takePhoto").addEventListener("click", () => openCamera("parcel"));
+
+    $("#choosePhoto").addEventListener("click", () => {
+      $("#photoInput").removeAttribute("capture");
+      $("#photoInput").click();
+    });
+
+    $("#photoInput").addEventListener("change", async (event) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      const takenAt = new Date().toISOString();
+      setPhoto(await compressImage(file, takenAt), takenAt);
+    });
+
+    $("#receiverPhotoInput").addEventListener("change", async (event) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      const takenAt = new Date().toISOString();
+      setReceiverPhoto(await compressImage(file, takenAt), takenAt);
+    });
+
+    $("#removePhoto").addEventListener("click", () => {
+      $("#photoInput").value = "";
+      setPhoto("");
+    });
+
+    $("#closeCamera").addEventListener("click", closeCamera);
+    $("#cameraDialog").addEventListener("close", stopCamera);
+    $("#choosePhotoFromCamera").addEventListener("click", () => {
+      closeCamera();
+      const input = cameraMode === "receiver" ? $("#receiverPhotoInput") : $("#photoInput");
+      input.removeAttribute("capture");
+      input.click();
+    });
+    $("#capturePhoto").addEventListener("click", captureCameraPhoto);
+    $("#closeReceiveDialog").addEventListener("click", () => $("#receiveDialog").close());
+    $("#takeReceiverPhoto").addEventListener("click", () => openCamera("receiver"));
+    $("#chooseReceiverPhoto").addEventListener("click", () => {
+      $("#receiverPhotoInput").removeAttribute("capture");
+      $("#receiverPhotoInput").click();
+    });
+    $("#removeReceiverPhoto").addEventListener("click", () => {
+      $("#receiverPhotoInput").value = "";
+      setReceiverPhoto("");
+    });
+    $("#saveReceive").addEventListener("click", saveReceiveRecord);
+
+    ["#dashboardDateFrom", "#dashboardDateTo", "#searchBox", "#statusFilter", "#carrierFilter", "#photoFilter", "#dateFrom", "#dateTo", "#reportStatus", "#reportCarrier"].forEach((selector) => {
+      $(selector).addEventListener("input", renderAll);
+      $(selector).addEventListener("change", renderAll);
+    });
+
+    document.querySelectorAll("[data-dashboard-range]").forEach((button) => {
+      button.addEventListener("click", () => setDashboardRange(button.dataset.dashboardRange));
+    });
+
+    $("#runReport").addEventListener("click", renderAll);
+    $("#printButton").addEventListener("click", () => window.print());
+    $("#printReport").addEventListener("click", () => window.print());
+    $("#exportButton").addEventListener("click", () => exportCsv(filteredForList(), "parcel-list"));
+    $("#exportReport").addEventListener("click", () => exportCsv(filteredForReport(), "parcel-report"));
+    $("#exportExcelButton").addEventListener("click", () => exportExcel(filteredForList(), "parcel-list"));
+    $("#exportReportExcel").addEventListener("click", () => exportExcel(filteredForReport(), "parcel-report"));
+    $("#exportTextButton").addEventListener("click", () => exportText(filteredForList(), "parcel-list"));
+    $("#exportReportText").addEventListener("click", () => exportText(filteredForReport(), "parcel-report"));
+    $("#pdfReport").addEventListener("click", exportReportPdf);
+    $("#clearButton").addEventListener("click", () => {
+      if (!parcels.length) return;
+      if (confirm("ล้างข้อมูลพัสดุทั้งหมดหรือไม่")) {
+        parcels = [];
+        writeLocal();
+        renderAll();
+      }
+    });
+
+    document.body.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
+      const parcel = parcels.find((item) => item.id === button.dataset.id);
+      if (!parcel) return;
+
+      if (button.dataset.action === "receive") {
+        openReceiveDialog(parcel);
+      }
+
+      if (button.dataset.action === "pending") {
+        const actor = currentUser?.name || prompt("ชื่อผู้บันทึกสถานะ", parcel.updatedBy || parcel.createdBy || "");
+        if (actor === null) return;
+        parcel.status = "pending";
+        parcel.receivedAt = "";
+        parcel.receivedBy = "";
+        parcel.receiverPhoto = "";
+        parcel.receiverPhotoTakenAt = "";
+        parcel.receiverPhotoFileId = "";
+        parcel.receiverPhotoUrl = "";
+        parcel.updatedBy = String(actor).trim() || parcel.createdBy || "";
+        parcel.updatedAt = new Date().toISOString();
+        parcel.logs = appendLog(parcel, "ยกเลิกสถานะรับแล้ว", parcel.updatedBy, parcel.updatedAt);
+      }
+
+      if (button.dataset.action === "edit") {
+        editingId = parcel.id;
+        Object.keys(fields).forEach((key) => fields[key].value = parcel[key] || "");
+        setPhoto(parcel.photo || "", parcel.photoTakenAt || "");
+        $("#saveButton").textContent = "บันทึกการแก้ไข";
+        switchMenu("entryView");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        fields.tracking.focus();
+      }
+
+      if (button.dataset.action === "delete") {
+        if (!confirm(`ลบรายการ ${parcel.tracking} หรือไม่`)) return;
+        parcels = parcels.filter((item) => item.id !== parcel.id);
+      }
+
+      if (button.dataset.action === "photo") {
+        $("#photoTitle").textContent = parcel.tracking;
+        $("#largePhoto").src = normalizePhotoSrc(parcel.photo);
+        $("#photoDialog").showModal();
+      }
+
+      if (button.dataset.action === "receiverPhoto") {
+        $("#photoTitle").textContent = `ผู้รับ: ${parcel.receivedBy || parcel.recipient}`;
+        $("#largePhoto").src = normalizePhotoSrc(parcel.receiverPhoto);
+        $("#photoDialog").showModal();
+      }
+
+      writeLocal();
+      renderAll();
+    });
+
+    $("#closePhoto").addEventListener("click", () => $("#photoDialog").close());
+
+    function renderAll() {
+      parcels = [...parcels].sort(sortNewest);
+      fillCarrierFilters();
+      renderStats();
+      renderDashboard();
+      renderList();
+      renderReport();
+    }
+
+    function readSession() {
+      try {
+        return JSON.parse(localStorage.getItem(sessionKey));
+      } catch {
+        return null;
+      }
+    }
+
+    function applyLoginState() {
+      const bootLoading = $("#bootLoading");
+      if (bootLoading) bootLoading.style.display = "none";
+      const loggedIn = !!currentUser;
+      document.body.classList.toggle("login-required", !loggedIn);
+      $("#menuUserText").textContent = loggedIn ? `${currentUser.name} (${currentUser.role})` : "";
+      if (loggedIn) {
+        fields.createdBy.value = currentUser.name;
+        fields.createdBy.readOnly = true;
+        fields.createdBy.title = "เติมจากผู้ที่เข้าสู่ระบบ";
+      }
+    }
+
+    function switchMenu(viewId) {
+      document.querySelectorAll(".menu-button").forEach((button) => {
+        button.classList.toggle("active", button.dataset.menu === viewId);
+      });
+      document.querySelectorAll(".menu-view").forEach((view) => {
+        view.classList.toggle("active", view.id === viewId);
+      });
+      closeMobileMenu();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function isMobileMenu() {
+      return window.matchMedia("(max-width: 620px)").matches;
+    }
+
+    function closeMobileMenu() {
+      document.body.classList.remove("sidebar-open");
+      syncMenuButtonState();
+    }
+
+    function syncMenuButtonState() {
+      const expanded = isMobileMenu()
+        ? document.body.classList.contains("sidebar-open")
+        : !document.body.classList.contains("sidebar-collapsed");
+      $("#menuToggle").setAttribute("aria-expanded", String(expanded));
+    }
+
+    function updateChromeMetrics() {
+      const headerHeight = document.querySelector("header").getBoundingClientRect().height;
+      document.documentElement.style.setProperty("--header-height", `${Math.ceil(headerHeight)}px`);
+      document.documentElement.style.setProperty("--sidebar-top", `${Math.ceil(headerHeight)}px`);
+    }
+
+    function renderStats() {
+      const dashboardItems = filteredForDashboard();
+      $("#totalCount").textContent = dashboardItems.length;
+      $("#pendingCount").textContent = dashboardItems.filter((item) => item.status === "pending").length;
+      $("#receivedCount").textContent = dashboardItems.filter((item) => item.status === "received").length;
+      $("#photoCount").textContent = dashboardItems.filter((item) => item.photo || item.receiverPhoto).length;
+      $("#todayCount").textContent = dashboardItems.length;
+    }
+
+    function renderDashboard() {
+      const dashboardItems = filteredForDashboard();
+      const pending = dashboardItems.filter((item) => item.status === "pending").slice(0, 6);
+      $("#recentPending").innerHTML = pending.map((parcel) => `
+        <div class="recent-item">
+          <div>
+            <strong>${escapeHtml(parcel.tracking)}</strong><br>
+            <small>${escapeHtml(parcel.recipient)}${parcel.location ? ` • ${escapeHtml(parcel.location)}` : ""}</small>
+          </div>
+          <span class="badge pending">รอรับ</span>
+        </div>
+      `).join("") || `<div class="empty">ไม่มีพัสดุรอรับ</div>`;
+
+      renderBars(dashboardItems, "#dashboardBars");
+    }
+
+    function renderList() {
+      const filtered = filteredForList();
+      $("#parcelRows").innerHTML = filtered.map(listRow).join("");
+      $("#emptyState").style.display = filtered.length ? "none" : "block";
+    }
+
+    function renderReport() {
+      const filtered = filteredForReport();
+      $("#reportRows").innerHTML = filtered.map(reportRow).join("");
+      $("#reportEmpty").style.display = filtered.length ? "none" : "block";
+      renderBars(filtered, "#carrierBars");
+    }
+
+    function listRow(parcel) {
+      const statusText = parcel.status === "received" ? "รับแล้ว" : "รอรับ";
+      const receiveText = parcel.status === "received" ? `${formatDate(parcel.receivedAt)}<br>${escapeHtml(parcel.receivedBy)}` : "";
+      const stampText = parcel.photoTakenAt ? `<br>ถ่าย: ${formatDate(parcel.photoTakenAt)}` : "";
+      const toggle = parcel.status === "received"
+        ? `<button class="secondary" data-action="pending" data-id="${parcel.id}" type="button">ยกเลิกรับ</button>`
+        : `<button data-action="receive" data-id="${parcel.id}" type="button">รับแล้ว</button>`;
+      return `
+        <tr>
+          <td>${photoCell(parcel)}</td>
+          <td>${formatDate(parcel.createdAt)}</td>
+          <td><strong>${escapeHtml(parcel.tracking)}</strong></td>
+          <td>${escapeHtml(parcel.recipient)}${parcel.location ? `<br><small>${escapeHtml(parcel.location)}</small>` : ""}</td>
+          <td>${escapeHtml(parcel.carrier)}</td>
+          <td>${escapeHtml(parcel.createdBy || "-")}<br><small>ล่าสุด: ${escapeHtml(parcel.updatedBy || "-")}</small></td>
+          <td>${detailText(parcel)}${stampText}</td>
+          <td><span class="badge ${parcel.status}">${statusText}</span><br><small>${receiveText}</small></td>
+          <td><div class="row-actions">${toggle}<button class="ghost" data-action="edit" data-id="${parcel.id}" type="button">แก้ไข</button><button class="danger" data-action="delete" data-id="${parcel.id}" type="button">ลบ</button></div></td>
+        </tr>
+      `;
+    }
+
+    function reportRow(parcel) {
+      const statusText = parcel.status === "received" ? "รับแล้ว" : "รอรับ";
+      return `
+        <tr>
+          <td>${formatDate(parcel.createdAt)}</td>
+          <td><strong>${escapeHtml(parcel.tracking)}</strong></td>
+          <td>${escapeHtml(parcel.recipient)}</td>
+          <td>${escapeHtml(parcel.carrier)}</td>
+          <td>${escapeHtml(parcel.parcelType)}</td>
+          <td>${escapeHtml(parcel.createdBy || "-")}</td>
+          <td><span class="badge ${parcel.status}">${statusText}</span></td>
+          <td>${parcel.receivedBy ? `${escapeHtml(parcel.receivedBy)}<br><small>${formatDate(parcel.receivedAt)}</small>` : "-"}</td>
+          <td>
+            ${parcel.photo ? `พัสดุ: มีรูป${parcel.photoTakenAt ? `<br><small>${formatDate(parcel.photoTakenAt)}</small>` : ""}` : "พัสดุ: ไม่มีรูป"}
+            <br>
+            ${parcel.receiverPhoto ? `ผู้รับ: มีรูป${parcel.receiverPhotoTakenAt ? `<br><small>${formatDate(parcel.receiverPhotoTakenAt)}</small>` : ""}` : "ผู้รับ: ไม่มีรูป"}
+          </td>
+        </tr>
+      `;
+    }
+
+    function photoCell(parcel) {
+      const parcelPhotoSrc = normalizePhotoSrc(parcel.photo)
+      const receiverPhotoSrc = normalizePhotoSrc(parcel.receiverPhoto)
+      const parcelPhoto = parcelPhotoSrc
+        ? `<button class="ghost" data-action="photo" data-id="${parcel.id}" type="button" title="ดูรูปพัสดุ"><img class="thumb" src="${parcelPhotoSrc}" alt="รูปพัสดุ ${escapeHtml(parcel.tracking)}"></button>`
+        : `<div class="thumb-empty">พัสดุ</div>`;
+      const receiverPhoto = receiverPhotoSrc
+        ? `<button class="ghost" data-action="receiverPhoto" data-id="${parcel.id}" type="button" title="ดูรูปผู้รับ"><img class="thumb" src="${receiverPhotoSrc}" alt="รูปผู้รับ ${escapeHtml(parcel.receivedBy || parcel.recipient)}"></button>`
+        : `<div class="thumb-empty">ผู้รับ</div>`;
+      return `<div class="photo-stack">${parcelPhoto}${receiverPhoto}</div>`;
+    }
+
+    function detailText(parcel) {
+      return [
+        escapeHtml(parcel.parcelType),
+        parcel.phone ? `โทร: ${escapeHtml(parcel.phone)}` : "",
+        parcel.sender ? `ผู้ส่ง: ${escapeHtml(parcel.sender)}` : "",
+        parcel.note ? `หมายเหตุ: ${escapeHtml(parcel.note)}` : "",
+        parcel.logs ? `<small>Log ล่าสุด: ${escapeHtml(lastLogText(parcel))}</small>` : ""
+      ].filter(Boolean).join("<br>");
+    }
+
+    function filteredForList() {
+      return applyFilters(parcels, {
+        query: $("#searchBox").value,
+        status: $("#statusFilter").value,
+        carrier: $("#carrierFilter").value,
+        photo: $("#photoFilter").value
+      });
+    }
+
+    function filteredForDashboard() {
+      return applyFilters(parcels, {
+        from: $("#dashboardDateFrom").value,
+        to: $("#dashboardDateTo").value
+      });
+    }
+
+    function filteredForReport() {
+      return applyFilters(parcels, {
+        status: $("#reportStatus").value,
+        carrier: $("#reportCarrier").value,
+        from: $("#dateFrom").value,
+        to: $("#dateTo").value
+      });
+    }
+
+    function setDashboardRange(range) {
+      const today = new Date();
+      if (range === "all") {
+        $("#dashboardDateFrom").value = "";
+        $("#dashboardDateTo").value = "";
+      } else if (range === "7days") {
+        const start = new Date(today);
+        start.setDate(start.getDate() - 6);
+        $("#dashboardDateFrom").value = toDateInput(start);
+        $("#dashboardDateTo").value = toDateInput(today);
+      } else {
+        $("#dashboardDateFrom").value = dateToday;
+        $("#dashboardDateTo").value = dateToday;
+      }
+      renderAll();
+    }
+
+    function applyFilters(items, filters) {
+      const query = (filters.query || "").trim().toLowerCase();
+      return items.filter((parcel) => {
+        const created = parcel.createdAt?.slice(0, 10) || "";
+        const haystack = [parcel.tracking, parcel.carrier, parcel.recipient, parcel.location, parcel.phone, parcel.sender, parcel.note, parcel.receivedBy, parcel.createdBy, parcel.updatedBy].join(" ").toLowerCase();
+        const matchQuery = !query || haystack.includes(query);
+        const matchStatus = !filters.status || filters.status === "all" || parcel.status === filters.status;
+        const matchCarrier = !filters.carrier || filters.carrier === "all" || parcel.carrier === filters.carrier;
+        const matchPhoto = !filters.photo || filters.photo === "all" || (filters.photo === "with" ? !!parcel.photo : !parcel.photo);
+        const matchFrom = !filters.from || created >= filters.from;
+        const matchTo = !filters.to || created <= filters.to;
+        return matchQuery && matchStatus && matchCarrier && matchPhoto && matchFrom && matchTo;
+      });
+    }
+
+    function fillCarrierFilters() {
+      const carriers = [...new Set(parcels.map((item) => item.carrier).filter(Boolean))].sort();
+      [["#carrierFilter", "ทุกขนส่ง"], ["#reportCarrier", "ทุกขนส่ง"]].forEach(([selector, label]) => {
+        const select = $(selector);
+        const current = select.value;
+        select.innerHTML = `<option value="all">${label}</option>` + carriers.map((carrier) => `<option>${escapeHtml(carrier)}</option>`).join("");
+        select.value = carriers.includes(current) ? current : "all";
+      });
+    }
+
+    function renderBars(items, target = "#carrierBars") {
+      const counts = items.reduce((map, parcel) => {
+        map[parcel.carrier] = (map[parcel.carrier] || 0) + 1;
+        return map;
+      }, {});
+      const max = Math.max(1, ...Object.values(counts));
+      $(target).innerHTML = Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([carrier, count]) => `
+        <div class="bar-row">
+          <strong>${escapeHtml(carrier)}</strong>
+          <div class="bar-track"><div class="bar-fill" style="width:${(count / max) * 100}%"></div></div>
+          <span>${count}</span>
+        </div>
+      `).join("") || `<p class="hint">ไม่มีข้อมูลสำหรับสร้างกราฟ</p>`;
+    }
+
+
+    function normalizePhotoSrc(value) {
+      const src = value || "";
+      if (!src.includes("drive.google.com/uc?")) return src;
+      try {
+        const url = new URL(src);
+        const id = url.searchParams.get("id");
+        return id ? `https://drive.google.com/thumbnail?id=${id}&sz=w1200` : src;
+      } catch {
+        const match = src.match(/[?&]id=([^&]+)/);
+        return match ? `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1200` : src;
+      }
+    }
+    function setPhoto(value, takenAt = "") {
+      photoData = value || "";
+      photoTakenAt = value ? takenAt : "";
+      $("#photoPreview").src = normalizePhotoSrc(photoData) || placeholderSvg();
+      $("#photoStampText").textContent = photoTakenAt
+        ? `ถ่ายเมื่อ ${formatDate(photoTakenAt)} และประทับเวลาไว้บนรูปแล้ว`
+        : "ยังไม่มีรูป ระบบจะประทับวันที่และเวลาลงบนรูปอัตโนมัติ";
+    }
+
+    function setReceiverPhoto(value, takenAt = "") {
+      receiverPhotoData = value || "";
+      receiverPhotoTakenAt = value ? takenAt : "";
+      $("#receiverPhotoPreview").src = normalizePhotoSrc(receiverPhotoData) || placeholderSvg("รูปผู้รับ");
+      $("#receiverPhotoStampText").textContent = receiverPhotoTakenAt
+        ? `ถ่ายเมื่อ ${formatDate(receiverPhotoTakenAt)}`
+        : "ยังไม่มีรูปผู้รับ";
+    }
+
+    function openReceiveDialog(parcel) {
+      receivingParcel = parcel;
+      $("#receiveName").value = parcel.receivedBy || parcel.recipient || "";
+      setReceiverPhoto(parcel.receiverPhoto || "", parcel.receiverPhotoTakenAt || "");
+      $("#receiveDialog").showModal();
+    }
+
+    function saveReceiveRecord() {
+      if (!receivingParcel) return;
+      const receivedBy = $("#receiveName").value.trim();
+      if (!receivedBy) {
+        alert("กรุณากรอกชื่อผู้รับของ");
+        return;
+      }
+      const now = new Date().toISOString();
+      const actor = currentUser?.name || receivingParcel.updatedBy || receivingParcel.createdBy || "";
+      receivingParcel.status = "received";
+      receivingParcel.receivedAt = now;
+      receivingParcel.receivedBy = receivedBy;
+      receivingParcel.receiverPhoto = receiverPhotoData || receivingParcel.receiverPhoto || "";
+      receivingParcel.receiverPhotoTakenAt = receiverPhotoTakenAt || receivingParcel.receiverPhotoTakenAt || "";
+      receivingParcel.updatedBy = actor;
+      receivingParcel.updatedAt = now;
+      receivingParcel.logs = appendLog(receivingParcel, `เปลี่ยนสถานะเป็นรับแล้ว โดยผู้รับ: ${receivedBy}${receivingParcel.receiverPhoto ? " พร้อมรูปผู้รับ" : ""}`, actor, now);
+      writeLocal();
+      renderAll();
+      $("#receiveDialog").close();
+      receivingParcel = null;
+    }
+
+    async function openCamera(mode = "parcel") {
+      cameraMode = mode;
+      if (!navigator.mediaDevices?.getUserMedia) {
+        alert("เบราว์เซอร์นี้เปิดกล้องตรงไม่ได้ จะเปิดให้เลือกไฟล์แทน");
+        const input = cameraMode === "receiver" ? $("#receiverPhotoInput") : $("#photoInput");
+        input.setAttribute("capture", "environment");
+        input.click();
+        return;
+      }
+
+      try {
+        stopCamera();
+        cameraStream = await navigator.mediaDevices.getUserMedia({
+          audio: false,
+          video: {
+            facingMode: { ideal: "environment" },
+            width: { ideal: 1280 },
+            height: { ideal: 720 }
+          }
+        });
+        $("#cameraPreview").srcObject = cameraStream;
+        $("#cameraHint").textContent = cameraMode === "receiver"
+          ? "จัดหน้าผู้รับให้อยู่ในกรอบ แล้วกดถ่ายภาพนี้"
+          : "จัดพัสดุให้อยู่ในกรอบ แล้วกดถ่ายภาพนี้";
+        $("#cameraDialog").showModal();
+      } catch (error) {
+        console.error(error);
+        alert("เปิดกล้องไม่ได้ อาจต้องอนุญาตกล้องหรือเปิดผ่าน HTTPS/localhost จะเปิดเลือกไฟล์แทน");
+        const input = cameraMode === "receiver" ? $("#receiverPhotoInput") : $("#photoInput");
+        input.setAttribute("capture", "environment");
+        input.click();
+      }
+    }
+
+    function captureCameraPhoto() {
+      const video = $("#cameraPreview");
+      if (!video.videoWidth || !video.videoHeight) {
+        $("#cameraHint").textContent = "กล้องยังไม่พร้อม ลองรอสักครู่แล้วกดอีกครั้ง";
+        return;
+      }
+
+      const takenAt = new Date().toISOString();
+      const maxSide = 900;
+      const scale = Math.min(1, maxSide / Math.max(video.videoWidth, video.videoHeight));
+      const canvas = $("#cameraCanvas");
+      canvas.width = Math.round(video.videoWidth * scale);
+      canvas.height = Math.round(video.videoHeight * scale);
+      const context = canvas.getContext("2d");
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      drawTimestamp(context, canvas, takenAt);
+      if (cameraMode === "receiver") {
+        setReceiverPhoto(canvas.toDataURL("image/jpeg", .78), takenAt);
+      } else {
+        setPhoto(canvas.toDataURL("image/jpeg", .78), takenAt);
+      }
+      closeCamera();
+    }
+
+    function closeCamera() {
+      if ($("#cameraDialog").open) $("#cameraDialog").close();
+      stopCamera();
+    }
+
+    function stopCamera() {
+      if (cameraStream) {
+        cameraStream.getTracks().forEach((track) => track.stop());
+        cameraStream = null;
+      }
+      $("#cameraPreview").srcObject = null;
+    }
+
+    function compressImage(file, takenAt) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = reject;
+        reader.onload = () => {
+          const img = new Image();
+          img.onerror = reject;
+          img.onload = () => {
+            const maxSide = 900;
+            const scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+            const canvas = document.createElement("canvas");
+            canvas.width = Math.round(img.width * scale);
+            canvas.height = Math.round(img.height * scale);
+            const context = canvas.getContext("2d");
+            context.drawImage(img, 0, 0, canvas.width, canvas.height);
+            drawTimestamp(context, canvas, takenAt);
+            resolve(canvas.toDataURL("image/jpeg", .78));
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function drawTimestamp(context, canvas, takenAt) {
+      const stamp = `ถ่ายเมื่อ ${formatDate(takenAt)}`;
+      const location = fields.location.value.trim();
+      const tracking = fields.tracking.value.trim();
+      const lines = [stamp, tracking ? `เลขพัสดุ: ${tracking}` : "", location ? `จุดรับ: ${location}` : ""].filter(Boolean);
+      const padding = Math.max(12, Math.round(canvas.width * .026));
+      const fontSize = Math.max(22, Math.round(canvas.width * .04));
+      context.font = `700 ${fontSize}px Tahoma, sans-serif`;
+      const lineHeight = Math.round(fontSize * 1.35);
+      const boxHeight = padding * 2 + lineHeight * lines.length;
+      context.fillStyle = "rgba(0, 0, 0, .66)";
+      context.fillRect(0, canvas.height - boxHeight, canvas.width, boxHeight);
+      context.fillStyle = "#ffffff";
+      context.textBaseline = "top";
+      lines.forEach((line, index) => {
+        context.fillText(line, padding, canvas.height - boxHeight + padding + lineHeight * index);
+      });
+    }
+
+    function exportCsv(items, name) {
+      const { header, lines } = exportRows(items);
+      const csv = [header, ...lines].map((line) => line.map(csvCell).join(",")).join("\n");
+      downloadBlob("\ufeff" + csv, `${name}-${new Date().toISOString().slice(0, 10)}.csv`, "text/csv;charset=utf-8");
+    }
+
+    function exportExcel(items, name) {
+      const { header, lines } = exportRows(items);
+      const tableRows = [header, ...lines].map((row, rowIndex) => {
+        const tag = rowIndex === 0 ? "th" : "td";
+        return `<tr>${row.map((cell) => `<${tag}>${escapeHtml(cell)}</${tag}>`).join("")}</tr>`;
+      }).join("");
+      const html = `
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <style>
+              table { border-collapse: collapse; font-family: "Angsana New", Tahoma, sans-serif; }
+              th, td { border: 1px solid #999; padding: 6px; vertical-align: top; }
+              th { background: #d9edf7; font-weight: bold; }
+            </style>
+          </head>
+          <body><table>${tableRows}</table></body>
+        </html>
+      `;
+      downloadBlob("\ufeff" + html, `${name}-${new Date().toISOString().slice(0, 10)}.xls`, "application/vnd.ms-excel;charset=utf-8");
+    }
+
+    function exportText(items, name) {
+      const { lines } = exportRows(items);
+      const text = lines.map((row, index) => [
+        `รายการที่ ${index + 1}`,
+        `เวลาเข้า: ${row[0]}`,
+        `เลขพัสดุ: ${row[1]}`,
+        `ขนส่ง/ประเภท: ${row[2]} / ${row[3]}`,
+        `ผู้รับ: ${row[4]}`,
+        `ห้อง/แผนก: ${row[5]}`,
+        `โทร: ${row[6]}`,
+        `ผู้ส่ง: ${row[7]}`,
+        `ผู้บันทึก: ${row[8]}`,
+        `สถานะ: ${row[11]}`,
+        `เวลารับ: ${row[12] || "-"}`,
+        `ผู้มารับ: ${row[13] || "-"}`,
+        `รูปพัสดุ: ${row[14]} ${row[15] ? "(" + row[15] + ")" : ""}`,
+        `รูปผู้รับ: ${row[16]} ${row[17] ? "(" + row[17] + ")" : ""}`,
+        `หมายเหตุ: ${row[10] || "-"}`,
+        `Log: ${row[18] || "-"}`
+      ].join("\r\n")).join("\r\n\r\n------------------------------\r\n\r\n");
+      downloadBlob("\ufeff" + (text || "ไม่มีข้อมูล"), `${name}-${new Date().toISOString().slice(0, 10)}.txt`, "text/plain;charset=utf-8");
+    }
+
+    function exportRows(items) {
+      const header = ["เวลาเข้า", "เลขพัสดุ", "ขนส่ง", "ประเภท", "ผู้รับ", "ห้อง/แผนก", "โทร", "ผู้ส่ง", "ผู้บันทึก", "ผู้แก้ไขล่าสุด", "หมายเหตุ", "สถานะ", "เวลารับ", "ผู้มารับ", "มีรูปพัสดุ", "เวลาถ่ายรูปพัสดุ", "มีรูปผู้รับ", "เวลาถ่ายรูปผู้รับ", "log"];
+      const lines = items.map((parcel) => [
+        formatDate(parcel.createdAt), parcel.tracking, parcel.carrier, parcel.parcelType, parcel.recipient,
+        parcel.location, parcel.phone, parcel.sender, parcel.createdBy, parcel.updatedBy, parcel.note, parcel.status === "received" ? "รับแล้ว" : "รอรับ",
+        parcel.receivedAt ? formatDate(parcel.receivedAt) : "", parcel.receivedBy, parcel.photo ? "มีรูป" : "ไม่มีรูป",
+        parcel.photoTakenAt ? formatDate(parcel.photoTakenAt) : "", parcel.receiverPhoto ? "มีรูป" : "ไม่มีรูป",
+        parcel.receiverPhotoTakenAt ? formatDate(parcel.receiverPhotoTakenAt) : "", logText(parcel)
+      ]);
+      return { header, lines };
+    }
+
+    function downloadBlob(content, filename, type) {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportReportPdf() {
+      const items = filteredForReport();
+      const from = $("#dateFrom").value || "-";
+      const to = $("#dateTo").value || "-";
+      const status = $("#reportStatus").selectedOptions[0]?.textContent || "ทุกสถานะ";
+      const carrier = $("#reportCarrier").selectedOptions[0]?.textContent || "ทุกขนส่ง";
+      const rows = items.map((parcel, index) => {
+        const statusText = parcel.status === "received" ? "รับแล้ว" : "รอรับ";
+        return `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${formatDate(parcel.createdAt)}</td>
+            <td>${escapeHtml(parcel.tracking)}</td>
+            <td>${escapeHtml(parcel.recipient)}</td>
+            <td>${escapeHtml(parcel.location || "-")}</td>
+            <td>${escapeHtml(parcel.carrier)}</td>
+            <td>${escapeHtml(parcel.parcelType)}</td>
+            <td>${statusText}</td>
+            <td>${escapeHtml(parcel.receivedBy || "-")}</td>
+            <td>
+              พัสดุ: ${parcel.photo ? "มีรูป" : "ไม่มีรูป"}<br>
+              ผู้รับ: ${parcel.receiverPhoto ? "มีรูป" : "ไม่มีรูป"}
+            </td>
+          </tr>
+        `;
+      }).join("") || `<tr><td colspan="10" class="empty-cell">ไม่มีข้อมูลในช่วงวันที่นี้</td></tr>`;
+
+      const printWindow = window.open("", "_blank");
+      if (!printWindow) {
+        alert("เบราว์เซอร์บล็อกหน้าต่าง PDF กรุณาอนุญาต pop-up แล้วลองใหม่");
+        return;
+      }
+
+      printWindow.document.write(`
+        <!doctype html>
+        <html lang="th">
+        <head>
+          <meta charset="utf-8">
+          <title>รีพอร์ตพัสดุ</title>
+          <style>
+            @page { size: A4 landscape; margin: 12mm; }
+            * { box-sizing: border-box; }
+            body { font-family: "Angsana New", "Segoe UI", Tahoma, sans-serif; color: #182625; margin: 0; }
+            h1 { margin: 0 0 6px; font-size: 22px; }
+            .meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0 14px; font-size: 12px; }
+            .meta div { border: 1px solid #d7e1df; border-radius: 6px; padding: 8px; }
+            .meta strong { display: block; color: #62726f; font-size: 11px; margin-bottom: 2px; }
+            table { width: 100%; border-collapse: collapse; font-size: 11px; }
+            th, td { border: 1px solid #d7e1df; padding: 6px; text-align: left; vertical-align: top; }
+            th { background: #eef4f2; color: #36514d; }
+            .summary { color: #62726f; font-size: 12px; margin-bottom: 8px; }
+            .empty-cell { text-align: center; padding: 22px; color: #62726f; }
+          </style>
+        </head>
+        <body>
+          <h1>รีพอร์ตพัสดุ</h1>
+          <div class="summary">สร้างเมื่อ ${formatDate(new Date().toISOString())} | จำนวน ${items.length} รายการ</div>
+          <div class="meta">
+            <div><strong>จากวันที่</strong>${escapeHtml(from)}</div>
+            <div><strong>ถึงวันที่</strong>${escapeHtml(to)}</div>
+            <div><strong>สถานะ</strong>${escapeHtml(status)}</div>
+            <div><strong>ขนส่ง</strong>${escapeHtml(carrier)}</div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>เวลาเข้า</th>
+                <th>เลขพัสดุ</th>
+                <th>ผู้รับ</th>
+                <th>ห้อง/แผนก</th>
+                <th>ขนส่ง</th>
+                <th>ประเภท</th>
+                <th>สถานะ</th>
+                <th>ผู้มารับ</th>
+                <th>รูป</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+          <script>
+            window.addEventListener("load", () => {
+              window.print();
+            });
+          <\/script>
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+    }
+
+    function readLocal() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function writeLocal(options = { sync: true }) {
+      localStorage.setItem(storageKey, JSON.stringify(parcels));
+      if (options.sync) queueBackendSave();
+    }
+
+    function hasBackend() {
+      return hasAppsScriptBackend() || /^https?:\/\//.test(sheetWebAppUrl);
+    }
+
+    function hasAppsScriptBackend() {
+      return !!(window.google?.script?.run);
+    }
+
+    function loadBackendData() {
+      if (!hasBackend()) return;
+      if (hasAppsScriptBackend()) {
+        google.script.run
+          .withSuccessHandler((items) => {
+            applyBackendItems(items);
+          })
+          .withFailureHandler((error) => {
+            console.error("Google Sheet load failed", error);
+          })
+          .listParcels();
+        return;
+      }
+      const callbackName = `parcelSheetCallback_${Date.now()}`;
+      const script = document.createElement("script");
+      const cleanup = () => {
+        delete window[callbackName];
+        script.remove();
+      };
+
+      window[callbackName] = (items) => {
+        applyBackendItems(items);
+        cleanup();
+      };
+
+      script.onerror = cleanup;
+      script.src = `${sheetWebAppUrl}?action=list&callback=${callbackName}&t=${Date.now()}`;
+      document.body.appendChild(script);
+    }
+
+    function applyBackendItems(items) {
+      if (Array.isArray(items) && items.length) {
+        parcels = items.map(normalizeBackendParcel);
+        writeLocal({ sync: false });
+        renderAll();
+      } else if (parcels.length) {
+        queueBackendSave();
+      }
+    }
+
+    function normalizeBackendParcel(parcel) {
+      return {
+        id: parcel.id || crypto.randomUUID(),
+        createdAt: parcel.createdAt || new Date().toISOString(),
+        updatedAt: parcel.updatedAt || parcel.createdAt || "",
+        tracking: parcel.tracking || "",
+        carrier: parcel.carrier || "",
+        parcelType: parcel.parcelType || "",
+        recipient: parcel.recipient || "",
+        location: parcel.location || "",
+        phone: parcel.phone || "",
+        sender: parcel.sender || "",
+        createdBy: parcel.createdBy || "",
+        updatedBy: parcel.updatedBy || "",
+        note: parcel.note || "",
+        status: parcel.status || "pending",
+        receivedAt: parcel.receivedAt || "",
+        receivedBy: parcel.receivedBy || "",
+        photo: parcel.photo || parcel.photoUrl || "",
+        photoTakenAt: parcel.photoTakenAt || "",
+        photoFileId: parcel.photoFileId || "",
+        photoUrl: parcel.photoUrl || "",
+        receiverPhoto: parcel.receiverPhoto || parcel.receiverPhotoUrl || "",
+        receiverPhotoTakenAt: parcel.receiverPhotoTakenAt || "",
+        receiverPhotoFileId: parcel.receiverPhotoFileId || "",
+        receiverPhotoUrl: parcel.receiverPhotoUrl || "",
+        logs: parcel.logs || ""
+      };
+    }
+
+    function queueBackendSave() {
+      if (!hasBackend()) return;
+      clearTimeout(backendSaveTimer);
+      backendSaveTimer = setTimeout(saveBackendData, 900);
+    }
+
+    function saveBackendData() {
+      if (!hasBackend()) return;
+      if (hasAppsScriptBackend()) {
+        google.script.run
+          .withFailureHandler((error) => {
+            console.error("Google Sheet sync failed", error);
+          })
+          .saveParcels({ parcels });
+        return;
+      }
+      fetch(sheetWebAppUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ action: "saveAll", parcels })
+      }).catch((error) => console.error("Google Sheet sync failed", error));
+    }
+
+    function sortNewest(a, b) {
+      return String(b.createdAt).localeCompare(String(a.createdAt));
+    }
+
+    function appendLog(parcel, action, actor, at = new Date().toISOString()) {
+      const logs = parseLogs(parcel?.logs);
+      logs.push({ at, actor: actor || "-", action });
+      return JSON.stringify(logs);
+    }
+
+    function parseLogs(value) {
+      if (Array.isArray(value)) return value;
+      try {
+        return JSON.parse(value || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function lastLogText(parcel) {
+      const logs = parseLogs(parcel.logs);
+      const last = logs[logs.length - 1];
+      return last ? `${formatDate(last.at)} ${last.actor}: ${last.action}` : "-";
+    }
+
+    function logText(parcel) {
+      return parseLogs(parcel.logs).map((log) => `${formatDate(log.at)} ${log.actor}: ${log.action}`).join(" | ");
+    }
+
+    function formatDate(value) {
+      if (!value) return "";
+      return new Intl.DateTimeFormat("th-TH", { dateStyle: "short", timeStyle: "short" }).format(new Date(value));
+    }
+
+    function toDateInput(value) {
+      const date = value instanceof Date ? value : new Date(value);
+      const offsetDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+      return offsetDate.toISOString().slice(0, 10);
+    }
+
+    function csvCell(value) {
+      return `"${String(value ?? "").replaceAll('"', '""')}"`;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+      }[char]));
+    }
+
+    function placeholderSvg() {
+      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240">
+          <rect width="360" height="240" fill="#eef4f2"/>
+          <rect x="96" y="66" width="168" height="108" rx="8" fill="#ffffff" stroke="#c8d5d2"/>
+          <path d="M120 92h120M120 116h120M120 140h76" stroke="#8aa09b" stroke-width="8" stroke-linecap="round"/>
+          <text x="180" y="206" text-anchor="middle" font-family="Tahoma, sans-serif" font-size="20" fill="#63736f">รูปพัสดุ</text>
+        </svg>
+      `);
+    }
+
+    renderAll();
+  </script>
+</body>
+</html>
+
+
+
