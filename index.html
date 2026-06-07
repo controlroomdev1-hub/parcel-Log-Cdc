@@ -520,6 +520,28 @@
 
     .table-wrap { overflow-x: auto; }
 
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 12px;
+      padding: 12px 2px 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .pagination button {
+      min-height: 36px;
+      min-width: 92px;
+      padding: 7px 12px;
+    }
+
+    .pagination button:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -713,6 +735,7 @@
       .quick-actions { grid-template-columns: 1fr; }
       .photo-preview { grid-template-columns: 1fr; }
       .photo-preview img { width: 100%; height: 180px; }
+      .pagination { justify-content: center; }
       .bar-row { grid-template-columns: 1fr; gap: 4px; }
       .actions button, .photo-buttons button { flex: 1 1 130px; }
     }
@@ -1970,6 +1993,61 @@
         text-align: left;
       }
     }
+
+    /* Stable parcel-list toolbar: fixed control sizes and sticky on desktop. */
+    #listView > div > .toolbar {
+      position: sticky;
+      top: 118px;
+      z-index: 18;
+      width: 100%;
+      max-width: 100%;
+      grid-template-rows: auto auto;
+      align-items: start;
+    }
+
+    #listView .tool-row {
+      grid-template-columns: minmax(360px, 1fr) 160px 160px 160px;
+      align-items: stretch;
+    }
+
+    #listView .tool-row input,
+    #listView .tool-row select {
+      min-height: 48px;
+    }
+
+    #listView .toolbar > .actions {
+      display: grid;
+      grid-template-columns: 114px 114px 130px 114px 144px;
+      justify-content: start;
+      align-items: stretch;
+    }
+
+    #listView .toolbar > .actions button {
+      width: 100%;
+      min-height: 48px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1180px) {
+      #listView > div > .toolbar {
+        position: static;
+      }
+
+      #listView .tool-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #listView .toolbar > .actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      #listView .tool-row,
+      #listView .toolbar > .actions {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2215,6 +2293,11 @@
           </table>
           <div class="empty" id="emptyState">ยังไม่มีรายการพัสดุ</div>
         </div>
+        <div class="pagination" id="listPagination" aria-label="เปลี่ยนหน้ารายการพัสดุ">
+          <button class="ghost" id="prevListPage" type="button">ก่อนหน้า</button>
+          <span id="listPageInfo">หน้า 1 / 1</span>
+          <button class="ghost" id="nextListPage" type="button">ถัดไป</button>
+        </div>
       </div>
     </div>
 
@@ -2361,6 +2444,8 @@
     let receiverPhotoTakenAt = "";
     let currentUser = readSession();
     let backendSaveTimer = null;
+    let listPage = 1;
+    const listPageSize = 5;
 
     const dateToday = new Date().toISOString().slice(0, 10);
     $("#todayText").textContent = new Intl.DateTimeFormat("th-TH", { dateStyle: "full", timeStyle: "short" }).format(new Date());
@@ -2520,6 +2605,32 @@
     ["#dashboardDateFrom", "#dashboardDateTo", "#searchBox", "#statusFilter", "#carrierFilter", "#photoFilter", "#dateFrom", "#dateTo", "#reportStatus", "#reportCarrier"].forEach((selector) => {
       $(selector).addEventListener("input", renderAll);
       $(selector).addEventListener("change", renderAll);
+    });
+
+    ["#searchBox", "#statusFilter", "#carrierFilter", "#photoFilter"].forEach((selector) => {
+      $(selector).addEventListener("input", () => {
+        listPage = 1;
+        renderAll();
+      });
+      $(selector).addEventListener("change", () => {
+        listPage = 1;
+        renderAll();
+      });
+    });
+
+    $("#prevListPage").addEventListener("click", () => {
+      if (listPage > 1) {
+        listPage -= 1;
+        renderList();
+      }
+    });
+
+    $("#nextListPage").addEventListener("click", () => {
+      const totalPages = Math.max(1, Math.ceil(filteredForList().length / listPageSize));
+      if (listPage < totalPages) {
+        listPage += 1;
+        renderList();
+      }
     });
 
     document.querySelectorAll("[data-dashboard-range]").forEach((button) => {
@@ -2693,8 +2804,16 @@
 
     function renderList() {
       const filtered = filteredForList();
-      $("#parcelRows").innerHTML = filtered.map(listRow).join("");
+      const totalPages = Math.max(1, Math.ceil(filtered.length / listPageSize));
+      listPage = Math.min(Math.max(1, listPage), totalPages);
+      const start = (listPage - 1) * listPageSize;
+      const pageItems = filtered.slice(start, start + listPageSize);
+      $("#parcelRows").innerHTML = pageItems.map(listRow).join("");
       $("#emptyState").style.display = filtered.length ? "none" : "block";
+      $("#listPagination").style.display = filtered.length ? "flex" : "none";
+      $("#listPageInfo").textContent = `หน้า ${listPage} / ${totalPages} (${filtered.length} รายการ)`;
+      $("#prevListPage").disabled = listPage <= 1;
+      $("#nextListPage").disabled = listPage >= totalPages;
     }
 
     function renderReport() {
@@ -3370,6 +3489,7 @@
   </script>
 </body>
 </html>
+
 
 
 
